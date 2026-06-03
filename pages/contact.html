@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Maryam Mokhberi</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+
+
+    /* main contact layout */
+    .contact-body {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      padding-bottom: 5rem;
+    }
+
+    /* email row */
+    .email-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2rem;
+    }
+    .email-icon-wrap {
+      width: 46px; height: 46px;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+      background: var(--bg);
+    }
+    .email-text { }
+    .email-label { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--quiet); display: block; margin-bottom: .15rem; }
+    .email-value { font-size: .95rem; color: var(--ink); }
+    .email-value:hover { color: var(--navy); text-decoration: underline; }
+
+    /* social icons grid */
+    .social-section h3 {
+      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--quiet); margin-bottom: 1rem;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .social-icon-link {
+      width: 58px; height: 58px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      color: var(--mid);
+      transition: background .2s, border-color .2s, color .2s, transform .15s;
+      background: var(--bg);
+    }
+    .social-icon-link:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .social-icon-link svg { display: block; }
+
+    /* open to section */
+    .open-to h2 {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+      margin-bottom: 1.25rem; padding-bottom: .6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .open-to-items { display: flex; flex-direction: column; gap: .75rem; }
+    .open-item {
+      display: flex; gap: .75rem; align-items: flex-start;
+      padding: .85rem 1rem;
+      border: 1px solid var(--rule); border-radius: 6px;
+      transition: border-color .2s, background .2s;
+    }
+    .open-item:hover { border-color: var(--navy); background: #f5f8ff; }
+    .open-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+    .open-text h4 { font-size: .875rem; font-weight: 500; color: var(--ink); margin-bottom: .2rem; }
+    .open-text p { font-size: .8rem; color: var(--mid); line-height: 1.6; margin: 0; }
+
+    .location-note { margin-top: 1.75rem; font-size: .8rem; color: var(--quiet); font-style: italic; }
+
+    @media (max-width: 680px) {
+      .contact-body { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body data-page="contact">
+  <div id="nav-placeholder"></div>
+
+  <div class="page-wrap">
+    <div class="container">
+
+      <div class="page-intro fade-in">
+        <h1>Contact</h1>
+        <p>I genuinely enjoy meeting new people. Whether you have a research idea, want to chat about AI and society, or just found something I wrote interesting — feel free to reach out. I read everything and respond to everyone.</p>
+      </div>
+
+      <div class="contact-body">
+
+        <!-- Left: how to reach me -->
+        <div class="fade-in">
+
+          <!-- Email -->
+          <a href="mailto:maryam@cs.toronto.edu" class="email-row" style="text-decoration:none;display:flex;">
+            <div class="email-icon-wrap">✉</div>
+            <div class="email-text">
+              <span class="email-label">Email</span>
+              <span class="email-value">maryam@cs.toronto.edu</span>
+            </div>
+          </a>
+
+          <!-- Social icons -->
+          <div class="social-section">
+            <h3>Find me on</h3>
+            <div class="social-icons">
+
+              <!-- LinkedIn -->
+              <a class="social-icon-link" href="https://www.linkedin.com/in/maryam-mokhberi-374abb60/" target="_blank" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+
+              <!-- X / Twitter -->
+              <a class="social-icon-link" href="https://twitter.com/MaryamMokhberi_" target="_blank" aria-label="X / Twitter">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+
+              <!-- GitHub -->
+              <a class="social-icon-link" href="https://github.com/maryammokhberi" target="_blank" aria-label="GitHub">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+
+              <!-- Scholar / Academia -->
+              <a class="social-icon-link" href="https://scholar.google.com/citations?user=maryammokhberi" target="_blank" aria-label="Google Scholar">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+              </a>
+
+              <!-- Thirdspace Lab -->
+              <a class="social-icon-link" href="https://www.ishtiaque.net/" target="_blank" aria-label="Thirdspace Lab">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </a>
+
+            </div>
+          </div>
+
+          <p class="location-note">📍 Toronto, Canada · Open to remote and hybrid roles globally</p>
+        </div>
+
+        <!-- Right: what I'm open to -->
+        <div class="open-to fade-in fade-in-delay-1">
+          <h2>What I'm open to</h2>
+          <div class="open-to-items">
+            <div class="open-item">
+              <span class="open-icon">🔬</span>
+              <div class="open-text">
+                <h4>Industry Research Roles</h4>
+                <p>AI ethics, Care AI, responsible AI — at tech companies, labs, or think tanks where societal impact is taken seriously.</p>
+              </div>
+            </div>
+            <div class="open-item">
+              <span class="open-icon">🤝</span>
+              <div class="open-text">
+                <h4>Research Collaboration</h4>
+                <p>Participatory design, community technology, AI equity — especially work centered on immigrant and marginalized communities.</p>
+              </div>
+            </div>
+            <div class="open-item">
+              <span class="open-icon">🎤</span>
+              <div class="open-text">
+                <h4>Talks & Panels</h4>
+                <p>Care AI, responsible AI, participatory design, academia-to-industry transitions.</p>
+              </div>
+            </div>
+            <div class="open-item">
+              <span class="open-icon">💬</span>
+              <div class="open-text">
+                <h4>Just a Conversation</h4>
+                <p>Working on something at the intersection of AI and community? I enjoy conversations without a predetermined outcome.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/blog-posts.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
