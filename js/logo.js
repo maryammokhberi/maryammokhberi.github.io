@@ -1,4 +1,4 @@
-// Shared logo SVG — wave-star mark + stacked name
+// Shared logo SVG: wave-star mark + stacked name
 // Used in nav across all inner pages
 // Clicking leads to index.html
 
@@ -23,7 +23,7 @@ const LOGO_SVG = `
   <text x="38" y="29" font-family="'Cormorant Garamond',Georgia,serif" font-size="7.5" font-weight="400" letter-spacing="2.5" fill="#1C1C1E" text-anchor="start" dominant-baseline="middle">MOKHBERI</text>
 </svg>`;
 
-// For landing page (dark bg compatible — lighter version)
+// For landing page (dark bg compatible, lighter version)
 const LOGO_SVG_LIGHT = `
 <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" aria-label="Maryam Mokhberi home">
   <g stroke="rgba(255,255,255,0.55)" stroke-width="1.4" stroke-linecap="round" fill="none">

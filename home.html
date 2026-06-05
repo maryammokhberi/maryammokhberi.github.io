@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maryam Mokhberi — AI & Society Researcher</title>
+  <title>Maryam Mokhberi | AI &amp; Society Researcher</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ── HOME-SPECIFIC STYLES ── */
@@ -216,6 +216,26 @@
     .writing-header a { font-size: .82rem; color: var(--quiet); }
     .writing-header a:hover { color: var(--navy); }
 
+    /* bio text in dark section */
+    .bio-paragraphs { max-width: 760px; }
+    .bio-paragraphs p {
+      color: rgba(255,255,255,.72);
+      line-height: 1.9;
+      font-size: .975rem;
+      margin-bottom: 1.25rem;
+    }
+    .bio-paragraphs p:last-child { margin-bottom: 0; }
+    .bio-paragraphs .bio-lead {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 1.5rem;
+    }
+
+    /* philosophy items on white background */
+    .highlights-section .philosophy-item h3 { color: var(--ink); }
+    .highlights-section .philosophy-item p { color: var(--mid); }
+    .highlights-section .philosophy-grid { margin-bottom: 3rem; }
+
     @media (max-width: 768px) {
       .home-hero { grid-template-columns: 1fr; min-height: auto; padding-top: 4rem; }
       .home-portrait { order: 1; }
@@ -236,7 +256,7 @@
       <div class="home-intro fade-in">
         <span class="role-tag">UX Researcher &amp; AI &amp; Society · University of Toronto</span>
         <h1>I study how<br><em>AI shapes</em><br>communities.</h1>
-        <p>Specifically the ones that get left out — immigrant-led nonprofits, informal organizations, people who don't fit the assumed user. I use qualitative and participatory methods to make AI systems more accountable.</p>
+        <p>Specifically the ones that get left out: immigrant-led nonprofits, informal organizations, people who don't fit the assumed user. I use qualitative and participatory methods to make AI systems more accountable.</p>
         <div class="hero-pills fade-in fade-in-delay-2">
           <a href="pages/research.html" class="pill">Projects →</a>
           <a href="pages/publications.html" class="pill">Publications →</a>
@@ -262,23 +282,16 @@
     </svg>
   </div>
 
-  <!-- PHILOSOPHY / dark wave section -->
+  <!-- BIO / dark wave section -->
   <section class="wave-section">
     <div class="container">
-      <span class="section-label" style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:1.5rem;">How I think about research</span>
-      <div class="philosophy-grid">
-        <div class="philosophy-item fade-in">
-          <h3>The communities most affected by AI are least involved in building it.</h3>
-          <p>My work tries to close that gap — through participatory design, qualitative fieldwork, and tools that center accountability from the start.</p>
-        </div>
-        <div class="philosophy-item fade-in fade-in-delay-1">
-          <h3>Care AI isn't about efficiency. It's about who gets cared for.</h3>
-          <p>Most AI systems called "assistive" optimize for users who already have access to convenience. I study the ones who don't.</p>
-        </div>
-        <div class="philosophy-item fade-in fade-in-delay-2">
-          <h3>Technical depth makes critique more useful, not less.</h3>
-          <p>My engineering background means I can engage with AI system design directly — not just describe its effects from the outside.</p>
-        </div>
+      <div class="bio-paragraphs">
+        <p class="bio-lead">I am a Ph.D. candidate in the Department of Computer Science at the University of Toronto, supervised by Dr. Ishtiaque Ahmed at the Thirdspace Lab. My research sits at the intersection of Artificial Intelligence, Human-Computer Interaction, and society. Specifically, I study how digital and AI infrastructures shape the nonprofit, care-based and community-based activities of immigrant communities, especially groups that operate at the margins of formal systems.</p>
+        <p>My current work focuses on immigrant-led nonprofits and informal charitable organizations, examining how emerging AI systems can both support and further marginalize these communities. I study how nonprofit technologies, data infrastructures, and donor-facing platforms often privilege formal, well-resourced organizations while making informal or politically complex immigrant-led groups less visible and less supported. This work has led to the design of AMINA, an inclusive and accountable AI assistant for marginalized immigrant nonprofit assistance, developed through interviews, co-design sessions, and prototype evaluation.</p>
+        <p>More broadly, I am interested in technology, inequality, care, and community infrastructure. Across my projects, I use qualitative, participatory, and design-oriented methods, as well as quantitative techniques to understand how technology might strengthen, rather than replace or distort, these community-based practices. Please visit the Projects section for a list of my current and previous projects.</p>
+        <p>Before joining the Thirdspace Lab, I was working in the Rotman Research Institute under the supervision of Dr. Stephen Strother and Dr. Stephen Arnott. I developed a converter pipeline for the data management system of the Ontario Brain Institute which converted their extensive MRI imaging database to the new globally defined Brain Imaging Data Structure (BIDS). I was also a member of the data curation team, helping in the development and application of multivariate statistical tools for outlier detection of complex data.</p>
+        <p>I received my master's in Biomedical Engineering from the University of Toronto under the supervision of Dr. Tom Chau. My study focused on investigating the short-term effect of meditation on the oscillations of brain EEG signals, where I gained knowledge about machine learning, statistics, and health-related programming skills. Specifically, I evaluated how meditation and mental rehearsal affect the classification accuracy of brain-computer interface (BCI) devices. I received my BS in Electrical Engineering from the University of Tehran, Iran. During my undergraduate years, I had the chance to do a research internship and design a cough detection module to be embedded in a dysphagia detection algorithm.</p>
+        <p>I enjoy meditation, reading books, and being in nature in my spare time. I also like astronomy and night sky observation.</p>
       </div>
     </div>
   </section>
@@ -294,31 +307,77 @@
   <section class="highlights-section">
     <div class="container">
       <div class="highlights-grid">
-        <a href="pages/research.html#amina" class="highlight-card fade-in">
-          <span class="card-label">Flagship Project</span>
-          <h3>AMINA</h3>
-          <p>An AI assistant built with — not for — immigrant-led nonprofits. Accountability by design.</p>
-        </a>
-        <a href="pages/research.html" class="highlight-card fade-in fade-in-delay-1">
-          <span class="card-label">PhD Research</span>
-          <h3>AI & Nonprofit Ecosystems</h3>
-          <p>How donor platforms and grant databases systematically disadvantage informal immigrant-led organizations.</p>
-        </a>
-        <a href="pages/publications.html" class="highlight-card fade-in fade-in-delay-2">
-          <span class="card-label">Publications</span>
-          <h3>CHI · CSCW · ASSETS</h3>
-          <p>Peer-reviewed work on Care AI, accountable design, and HCI for marginalized communities.</p>
-        </a>
+        <div class="highlight-card fade-in">
+          <span class="card-label">How I think about research</span>
+          <h3>The communities most affected by AI are least involved in building it.</h3>
+          <p>My work tries to close that gap, through participatory design, qualitative fieldwork, and tools that center accountability from the start.</p>
+        </div>
+        <div class="highlight-card fade-in fade-in-delay-1">
+          <span class="card-label">How I think about research</span>
+          <h3>Care AI isn't about efficiency. It's about who gets cared for.</h3>
+          <p>Most AI systems called "assistive" optimize for users who already have access to convenience. I study the ones who don't.</p>
+        </div>
+        <div class="highlight-card fade-in fade-in-delay-2">
+          <span class="card-label">How I think about research</span>
+          <h3>Technical depth makes critique more useful, not less.</h3>
+          <p>My engineering background means I can engage with AI system design directly, not just describe its effects from the outside.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- RECENT WRITING -->
+  <!-- RECENT PROJECTS AND WRITING -->
   <section class="writing-section">
     <div class="container">
       <div class="writing-header">
-        <h2>Recent writing</h2>
-        <a href="pages/blog.html">All posts →</a>
+        <h2>Recent Projects and Writing</h2>
+      </div>
+
+      <span class="section-label" style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--quiet);display:block;margin-bottom:1rem;">Projects</span>
+      <a class="post-list-item fade-in" href="pages/research.html#amina">
+        <div class="pli-meta">
+          <span>2023–Present</span>
+          <span class="pli-cat">Flagship Project</span>
+        </div>
+        <div class="pli-title">AMINA</div>
+        <div class="pli-excerpt">An AI assistant designed with, and not just for, immigrant-led nonprofit organizations, built through participatory co-design. Accountability is a feature, not an afterthought.</div>
+      </a>
+      <a class="post-list-item fade-in" href="pages/research.html">
+        <div class="pli-meta">
+          <span>2021–Present</span>
+          <span class="pli-cat">PhD Research</span>
+        </div>
+        <div class="pli-title">AI Infrastructures &amp; Immigrant Nonprofits</div>
+        <div class="pli-excerpt">How donor platforms, grant databases, and AI-powered intake tools shape which organizations get seen and supported, and which don't.</div>
+      </a>
+      <a class="post-list-item fade-in" href="pages/research.html">
+        <div class="pli-meta">
+          <span>2017–2021</span>
+          <span class="pli-cat">Earlier Work</span>
+        </div>
+        <div class="pli-title">Brain-Computer Interfaces &amp; Neural Data</div>
+        <div class="pli-excerpt">How meditation and mental rehearsal affect EEG-based brain-computer interface classification accuracy, and what it taught me about designing for people, not averages.</div>
+      </a>
+      <a class="post-list-item fade-in" href="pages/research.html">
+        <div class="pli-meta">
+          <span>2021</span>
+          <span class="pli-cat">Dataset</span>
+        </div>
+        <div class="pli-title">COVID-19 Stigma Dataset</div>
+        <div class="pli-excerpt">A dataset documenting stigma, discrimination, and community responses during the COVID-19 pandemic.</div>
+      </a>
+      <a class="post-list-item fade-in" href="pages/research.html">
+        <div class="pli-meta">
+          <span>2019–2021</span>
+          <span class="pli-cat">Research</span>
+        </div>
+        <div class="pli-title">Brain Imaging Data Standardization</div>
+        <div class="pli-excerpt">A converter pipeline migrating MRI data from 15+ hospitals at the Ontario Brain Institute to the globally defined BIDS standard, plus multivariate outlier detection tools for complex neuroimaging data.</div>
+      </a>
+
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin:2.5rem 0 1rem;">
+        <span class="section-label" style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--quiet);">Writing</span>
+        <a href="pages/blog.html" style="font-size:.82rem;color:var(--quiet);">All posts →</a>
       </div>
       <div id="home-blog-container"></div>
     </div>

@@ -2,9 +2,9 @@ const IS_SUBPAGE = window.location.pathname.includes('/pages/');
 const ROOT = IS_SUBPAGE ? '../' : './';
 const LANDING = ROOT + 'index.html';
 
-// ── LOGO — Option A: wave sweep + stars ──
+// LOGO: Option A - wave sweep + stars
 const LOGO_HTML = `
-<a href="${LANDING}" class="nav-logo" aria-label="Maryam Mokhberi — home">
+<a href="${LANDING}" class="nav-logo" aria-label="Maryam Mokhberi home">
   <svg width="118" height="38" viewBox="0 0 118 38" xmlns="http://www.w3.org/2000/svg">
     <path d="M4,28 C8,17 14,13 20,20 C24,26 28,13 32,17" stroke="#0e2040" stroke-width="1.5" fill="none" stroke-linecap="round"/>
     <path d="M4,34 C9,25 16,21 22,27 C26,32 30,19 36,23" stroke="#0e2040" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.32"/>
@@ -16,7 +16,7 @@ const LOGO_HTML = `
   </svg>
 </a>`;
 
-// ── WAVE NAV ACCENT — curvy separator replacing the straight border ──
+// WAVE NAV ACCENT: curvy separator replacing the straight border
 const NAV_WAVE = `
 <div class="nav-wave" aria-hidden="true">
   <svg viewBox="0 0 1440 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -132,7 +132,7 @@ function renderPost() {
   if (!el || typeof BLOG_POSTS === 'undefined') return;
   const post = getPostById(id);
   if (!post) { el.innerHTML = `<div class="post-page"><p>Post not found. <a href="${ROOT}pages/blog.html">Back to Blog</a></p></div>`; return; }
-  document.title = `${post.title} — Maryam Mokhberi`;
+  document.title = `${post.title} | Maryam Mokhberi`;
   el.innerHTML = `
     <div class="post-page">
       <div class="post-page-meta">
