@@ -6,6 +6,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Publications | Maryam Mokhberi</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .pub-group {
+      margin-top: 2rem;
+    }
+    .pub-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 3rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+    .pub-venue {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      display: block;
+      padding-top: .2rem;
+      line-height: 1.6;
+    }
+    .pub-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .pub-main {
+      flex: 1;
+      min-width: 0;
+    }
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: .45rem;
+      line-height: 1.35;
+    }
+    .pub-authors {
+      font-size: .9rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: .35rem;
+    }
+    .notes {
+      font-size: .82rem;
+      color: var(--navy-mid);
+      font-weight: 500;
+      letter-spacing: .03em;
+    }
+    .pub-actions {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-shrink: 0;
+      padding-top: .2rem;
+    }
+    .pdf-link {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: .22rem .55rem;
+      transition: background .2s, color .2s, border-color .2s;
+      white-space: nowrap;
+    }
+    .pdf-link:hover {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+      text-decoration: none;
+    }
+    .pdf-icon {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .pub-item {
+        grid-template-columns: 1fr;
+        gap: .5rem;
+      }
+      .pub-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .pub-actions {
+        padding-top: 0;
+      }
+    }
+  </style>
 </head>
 <body data-page="publications">
   <div id="nav-placeholder"></div>
@@ -22,42 +121,112 @@
 
         <div class="pub-item">
           <div class="pub-venue">DIS' 2026</div>
-          <div>
-            <div class="pub-title">Artificial Intelligence at the Margins: Risks and Opportunities for Iranian Immigrant Nonprofits in the Global North.</div>
-            <div class="pub-authors">Maryam Mokhberi, Dipto Das, Pratyasha Saha, Ishtiaque Ahmed, Nusrat Jahan Mim</div>
-            <div class="notes">Honorable Mention Award 🏆</div>
+          <div class="pub-content">
+            <div class="pub-main">
+              <div class="pub-title">Artificial Intelligence at the Margins: Risks and Opportunities for Iranian Immigrant Nonprofits in the Global North.</div>
+              <div class="pub-authors">Maryam Mokhberi, Dipto Das, Pratyasha Saha, Ishtiaque Ahmed, Nusrat Jahan Mim</div>
+              <div class="notes">Honorable Mention Award 🏆</div>
+            </div>
+            <div class="pub-actions">
+              <a class="pdf-link" href="https://drive.google.com/file/d/1Ozn2S8O53-1ZbN-IhyJRiNGWtrXkTuSm/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                  <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                </svg>
+                PDF
+              </a>
+            </div>
           </div>
         </div>
 
         <div class="pub-item">
-          <div class="pub-venue">GROUP 2027 (submitted)</div>
-          <div>
-            <div class="pub-title">AMINA: The Inclusive and Accountable AI for Marginalized Immigrant Nonprofit Assistance</div>
-            <div class="pub-authors">Maryam Mokhberi, Dipto Das, Ishtiaque Ahmed</div>
+          <div class="pub-venue">GROUP 27</div>
+          <div class="pub-content">
+            <div class="pub-main">
+              <div class="pub-title">AMINA: The Inclusive and Accountable AI for Marginalized Immigrant Nonprofit Assistance</div>
+              <div class="pub-authors">Maryam Mokhberi, Dipto Das, Ishtiaque Ahmed</div>
+            </div>
+            <div class="pub-actions">
+              <a class="pdf-link" href="https://drive.google.com/file/d/1tFxoSqzNAz9R3-DKpx3_g5ZdQdsiEOuY/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                  <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                </svg>
+                PDF
+              </a>
+            </div>
           </div>
         </div>
 
         <div class="pub-item">
-          <div class="pub-venue">ToCHI (To be Submitted on July 2026)</div>
-          <div>
-            <div class="pub-title">Creating Caring Technologies: A Socio-technical Survey of Nonprofit Tools and Practices </div>
-            <div class="pub-authors">Maryam Mokhberi, Dipto Das, Ishtiaque Ahmed</div>
+          <div class="pub-venue">ToCHI</div>
+          <div class="pub-content">
+            <div class="pub-main">
+              <div class="pub-title">Creating Caring Technologies: A Socio-technical Survey of Nonprofit Tools and Practices </div>
+              <div class="pub-authors">Maryam Mokhberi, Dipto Das, Ishtiaque Ahmed</div>
+            </div>
+            <div class="pub-actions">
+              <a class="pdf-link" href="https://drive.google.com/file/d/1yx56NFu9HVn6tATRWC5-h4zzZH6-emBA/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                  <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                </svg>
+                PDF
+              </a>
+            </div>
           </div>
         </div>
         
         <div class="pub-item">
           <div class="pub-venue">JMIR Formative Research, 2023</div>
-          <div>
-            <div class="pub-title">Development of a COVID-19–Related Anti-Asian Tweet Data Set: Quantitative Study</div>
-            <div class="pub-authors">Maryam Mokhberi, Ahana Biswas, Zarif Masud, Roula Kteily-Hawa, Abby Goldstein, Joseph Roy Gillis, Shebuti Rayana, Syed Ishtiaque Ahmed</div>
+          <div class="pub-content">
+            <div class="pub-main">
+              <div class="pub-title">Development of a COVID-19–Related Anti-Asian Tweet Data Set: Quantitative Study</div>
+              <div class="pub-authors">Maryam Mokhberi, Ahana Biswas, Zarif Masud, Roula Kteily-Hawa, Abby Goldstein, Joseph Roy Gillis, Shebuti Rayana, Syed Ishtiaque Ahmed</div>
+            </div>
+            <div class="pub-actions">
+              <a class="pdf-link" href="https://drive.google.com/file/d/1Mo9-PKOxqd932nYSlqFCl7NH6FmljNGM/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                  <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                </svg>
+                PDF
+              </a>
+            </div>
           </div>
         </div>
 
         <div class="pub-item">
           <div class="pub-venue">University of Toronto, 2018</div>
-          <div>
-            <div class="pub-title">Investigating the Efficacy of Meditation and Mental Rehearsal on EEG BCI Performance in a Pediatric Context.</div>
-            <div class="pub-authors">Maryam Mokhberi</div>
+          <div class="pub-content">
+            <div class="pub-main">
+              <div class="pub-title">Investigating the Efficacy of Meditation and Mental Rehearsal on EEG BCI Performance in a Pediatric Context.</div>
+              <div class="pub-authors">Maryam Mokhberi</div>
+            </div>
+            <div class="pub-actions">
+              <a class="pdf-link" href="https://drive.google.com/file/d/1c1zZkNh5ugn8vj3-cVvDyA9Z5T1sJbSW/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                  <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                  <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                </svg>
+                PDF
+              </a>
+            </div>
           </div>
         </div>
 

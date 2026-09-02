@@ -6,6 +6,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experience | Maryam Mokhberi</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    :root {
+      --paper: #f8f5f0;
+      --paper-strong: #f2eee8;
+      --soft-ink: #2b2a2a;
+      --soft-rule: #eae1d6;
+      --soft-accent: #7d8fa9;
+    }
+
+    .experience-shell {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .timeline-block {
+      position: relative;
+      padding: 0 0 0 1.2rem;
+      border-left: 1px solid var(--rule);
+      margin-left: .6rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1.1rem 0 1.2rem 1.4rem;
+      margin-left: .2rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.62rem;
+      top: 1.55rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--navy);
+      box-shadow: 0 0 0 4px rgba(14,32,64,0.08);
+    }
+
+    .exp-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(248,245,240,0.96));
+      border: 1px solid var(--soft-rule);
+      border-radius: 18px;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 10px 28px rgba(28, 28, 30, 0.03);
+    }
+
+    .exp-meta {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      font-weight: 500;
+      margin-bottom: .7rem;
+      display: block;
+    }
+
+    .exp-company {
+      color: #6f6a63;
+      font-size: .84rem;
+      margin: .1rem 0 .8rem;
+    }
+
+    .exp-role {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+      font-weight: 400;
+      color: var(--soft-ink);
+      line-height: 1.15;
+      margin: 0 0 .6rem;
+      letter-spacing: -.01em;
+    }
+
+    .exp-body p {
+      font-size: .96rem;
+      line-height: 1.8;
+      color: #4f4c49;
+      margin-bottom: .9rem;
+    }
+
+    .exp-body p:last-child { margin-bottom: 0; }
+
+    .mini-list {
+      display: grid;
+      gap: .55rem;
+      margin-top: .2rem;
+    }
+
+    .mini-list p {
+      margin: 0;
+      padding-left: 0.7rem;
+      position: relative;
+      color: #4f4c49;
+      line-height: 1.7;
+      font-size: .94rem;
+    }
+
+    .mini-list p::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--navy-mid);
+    }
+
+    .award-list {
+      display: grid;
+      gap: .8rem;
+      margin-top: .2rem;
+    }
+
+    .award-item {
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      background: rgba(242, 238, 232, 0.7);
+      border: 1px solid var(--soft-rule);
+    }
+
+    .award-item strong {
+      color: var(--soft-ink);
+      font-weight: 500;
+      display: block;
+      margin-bottom: .15rem;
+    }
+
+    .award-item span {
+      font-size: .82rem;
+      color: #6f6a63;
+      letter-spacing: .02em;
+    }
+
+    @media (max-width: 640px) {
+      .exp-card {
+        padding: 1.1rem 1rem;
+      }
+      .timeline-block {
+        padding-left: .8rem;
+      }
+      .timeline-item {
+        padding-left: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body data-page="teaching">
   <div id="nav-placeholder"></div>
@@ -15,140 +158,172 @@
 
       <div class="page-intro fade-in">
         <h1>Experience</h1>
-        <p>Education, research, teaching, and the organizations I've been part of along the way.</p>
+        <p>Research, design, community leadership, and technical work across human-centered AI, neurotechnology, and social impact.</p>
       </div>
 
-      <!-- EDUCATION -->
-      <div class="research-section fade-in">
-        <div class="rs-meta">
-          <span class="rs-label">Education</span>
+      <div class="experience-shell">
+
+        <div class="timeline-block fade-in">
+          <div class="timeline-item">
+            <div class="exp-card">
+              <span class="exp-meta">Education</span>
+
+              <div class="exp-body">
+                <div style="margin-bottom:1.6rem;">
+                  <div class="exp-company">Sep 2019 – Dec 2026</div>
+                  <h3 class="exp-role">Ph.D. in Computer Science, Human Computer Interaction</h3>
+                  <p class="exp-company">Department of Computer Science, University of Toronto</p>
+                  <p>Ph.D. thesis: Creating Caring Technologies: Navigating the Fractured Infrastructures of Digital Ecosystem in Immigrant-based Nonprofits.</p>
+                </div>
+
+                <div style="margin-bottom:1.6rem;">
+                  <div class="exp-company">2015 – 2017</div>
+                  <h3 class="exp-role">Master’s Degree, Biomedical Engineering</h3>
+                  <p class="exp-company">University of Toronto</p>
+                  <p>M.A.Sc. thesis: Investigating the Efficacy of Meditation and Mental Rehearsal on EEG BCI Performance in a Pediatric Context.</p>
+                </div>
+
+                <div style="margin-bottom:1.6rem;">
+                  <div class="exp-company">Sep 2015 – Jan 2018</div>
+                  <h3 class="exp-role">Collaborative Program in Neuroscience</h3>
+                  <p class="exp-company">University of Toronto</p>
+                </div>
+
+                <div>
+                  <div class="exp-company">2011 – 2015</div>
+                  <h3 class="exp-role">Bachelor of Science (BS), Electrical Engineering, Bioelectrics</h3>
+                  <p class="exp-company">University of Tehran</p>
+                  <p>B.Sc. thesis: A Study on the Learning Disorders of Addict Individuals Using Computational Modeling in Reinforcement Learning Framework.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="rs-body">
 
-          <div style="margin-bottom:2rem;">
-            <div class="rs-label" style="margin-bottom:.3rem;">2021–Present</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">PhD, Computer Science</h3>
-            <p style="color:var(--quiet);font-size:.875rem;margin-bottom:.5rem;">University of Toronto &nbsp;·&nbsp; Thirdspace Lab &nbsp;·&nbsp; Supervised by Dr. Ishtiaque Ahmed</p>
-            <p>Human-computer interaction and social computing. Dissertation on how AI infrastructures shape the visibility and viability of immigrant-led nonprofit organizations.</p>
+        <div class="timeline-block fade-in">
+          <div class="timeline-item">
+            <div class="exp-card">
+              <span class="exp-meta">Experience</span>
+
+              <div class="exp-body">
+                <div style="margin-bottom:1.8rem;">
+                  <div class="exp-company">Sep 2019 - Present · Greater Toronto Area, Canada</div>
+                  <h3 class="exp-role">PhD Researcher, UX Researcher | Human-Centered AI</h3>
+                  <p class="exp-company">Department of Computer Science, University of Toronto · Full-time</p>
+                  <p>Lead a multi-phase UX and human-centered AI research program examining how nonprofit leaders, volunteers, donors, and community members interact with digital platforms and AI systems.</p>
+                  <p>Conduct foundational, generative, and evaluative research using semi-structured interviews, surveys, participatory design, prototype feedback, and qualitative and quantitative analysis.</p>
+                  <p>Mapped more than 120 nonprofit and charitable technology platforms to identify infrastructure gaps, underserved users, and emerging opportunities and risks associated with AI.</p>
+                  <p>Conducted an in-depth interview study with 50+ participants to understand trust, exclusion, misinformation, accessibility, platform visibility, and organizational capacity within nonprofits.</p>
+                  <p>Designed and evaluated AMINA, an inclusive AI-assistant product supporting nonprofit discovery, donor communication, credibility assessment, multilingual access, community validation, and organizational capacity building.</p>
+                  <p>Translated research findings into design requirements and recommendations for AI-powered products.</p>
+                  <p>Contributed to the development and analysis of a large-scale dataset of COVID-19-related anti-Asian social-media content, combined with computational machine learning and NLP analysis of online harm.</p>
+                </div>
+
+                <div style="margin-bottom:1.8rem;">
+                  <div class="exp-company">Aug 2016 - Mar 2023 · Toronto, Ontario, Canada</div>
+                  <h3 class="exp-role">Co-Founder & Co-Lead, Service Design and Community Programs</h3>
+                  <p class="exp-company">Bahar Charity · Full-time</p>
+                  <p>Co-founded and co-led a volunteer-run nonprofit initiative supporting underprivileged children, helping organize more than 50 fundraising and awareness campaigns and mobilize more than CAD 75,000 in student setting in direct and indirect donations.</p>
+                  <p>Designed and coordinated end-to-end service experiences spanning community-need identification, campaign development, volunteer coordination, donor communication, fundraising, event delivery, and post-campaign engagement.</p>
+                  <p>Identified recurring challenges experienced by donors, volunteers, organizers, and beneficiary communities and redesigned processes and communication touchpoints to improve participation, trust, and coordination.</p>
+                  <p>Designed and managed the organization’s website and social media channels, connecting online outreach with fundraising campaigns and community events.</p>
+                  <p>Facilitated frequent meet-ups about social impact and entrepreneurship, gathering a community of like-minded people.</p>
+                </div>
+
+                <div style="margin-bottom:1.8rem;">
+                  <div class="exp-company">Feb 2018 - Jul 2019 · Greater Toronto Area, Canada</div>
+                  <h3 class="exp-role">Research Assistant | Neuroimaging Data Engineer</h3>
+                  <p class="exp-company">Baycrest Health Sciences · Full-time</p>
+                  <p>Designed, developed, and deployed a scalable conversion pipeline that standardized large neuroimaging datasets according to the international Brain Imaging Data Structure standard, using Python, Docker, and Bash.</p>
+                  <p>Delivered a production system adopted across the research hospital ecosystem in Ontario.</p>
+                  <p>Contributed to the development of multivariate methods for identifying outliers and data-quality problems in complex healthcare datasets.</p>
+                  <p>Facilitated monthly deep-learning sessions, supporting knowledge sharing across the research team.</p>
+                </div>
+
+                <div style="margin-bottom:1.8rem;">
+                  <div class="exp-company">Sep 2015 - Jan 2018 · Greater Toronto Area, Canada</div>
+                  <h3 class="exp-role">Graduate Researcher (MASc), Assistive Technology & Human Factor</h3>
+                  <p class="exp-company">Holland Bloorview Kids Rehabilitation Hospital</p>
+                  <p>Designed and evaluated an audio-tactile brain-computer interface that enabled children with disabilities to interact with and potentially control their environments through EEG-based input.</p>
+                  <p>Planned and conducted more than 25 research sessions with pediatric participants, combining participant feedback, physiological data collection, and system-performance analysis.</p>
+                  <p>Investigated how mindfulness meditation and mental rehearsal affected brain-computer-interface performance in pediatric contexts.</p>
+                </div>
+
+                <div>
+                  <div class="exp-company">Jul 2014 - Sep 2014 · Greater Toronto Area, Canada</div>
+                  <h3 class="exp-role">Research Intern</h3>
+                  <p class="exp-company">Holland Bloorview Kids Rehabilitation Hospital</p>
+                  <p>Using machine learning, a set of recorded accelerometer signals for healthy participants were classified into a cough vs. non-cough group with the best classifier accuracy of 99%. The dataset consisted of cough, swallow, speech, head movement, tongue out, tongue to left, tongue to right and rest signals. The applied classifiers were artificial neural networks (ANN), Support Vector Machines (SVM), and Naïve-Bayes.</p>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div style="margin-bottom:2rem;">
-            <div class="rs-label" style="margin-bottom:.3rem;">2017–2019</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">MSc, Biomedical Engineering</h3>
-            <p style="color:var(--quiet);font-size:.875rem;margin-bottom:.5rem;">University of Toronto &nbsp;·&nbsp; Holland Bloorview &nbsp;·&nbsp; Supervised by Dr. Tom Chau</p>
-            <p>Research on the effects of meditation and mental rehearsal on EEG-based brain-computer interface classification accuracy.</p>
-          </div>
-
-          <div>
-            <div class="rs-label" style="margin-bottom:.3rem;">2012–2017</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">BSc, Electrical Engineering</h3>
-            <p style="color:var(--quiet);font-size:.875rem;margin-bottom:.5rem;">University of Tehran, Iran</p>
-            <p>Undergraduate research internship designing a cough detection module for a dysphagia detection algorithm.</p>
-          </div>
-
         </div>
-      </div>
 
-      <!-- WORK & RESEARCH -->
-      <div class="research-section fade-in">
-        <div class="rs-meta">
-          <span class="rs-label">Work &<br>Research</span>
+        <div class="timeline-block fade-in">
+          <div class="timeline-item">
+            <div class="exp-card">
+              <span class="exp-meta">Teaching</span>
+              <div class="exp-body mini-list">
+                <p>CSC318 Design of Interactive Computational Media (Teaching Assistant), Fall 2022, Summer 2022, Department of Computer Science, University of Toronto</p>
+                <p>CSC2612 Computing and Global Development (Teaching Assistant), Winter 2021, Department of Computer Science, University of Toronto</p>
+                <p>CSC108 Introduction to Computer Programming (Teaching Assistant), Winter 2022, Winter 2021, Fall 2020, Summer 2020, Winter 2020, Department of Computer Science, University of Toronto</p>
+                <p>CSC300 Computer and Society (Teaching Assistant), Fall 2019, Department of Computer Science, University of Toronto</p>
+                <p>Organizing and teaching workshops for high school students in the fields of biomedical engineering and assistive technology, Fall 2016–Fall 2017, Toronto, Ontario</p>
+                <p>Bioengineering Lab (Teaching Assistant), University of Tehran, Iran, Fall 2014</p>
+                <p>Intro to Calculus (Tutor), Nodet high school, Shiraz, Iran, 2009–2011</p>
+                <p>Intro to Physics (Tutor), Nodet high school, Shiraz, Iran, 2009–2011</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="rs-body">
 
-          <div style="margin-bottom:2rem;">
-            <div class="rs-label" style="margin-bottom:.3rem;">2021–Present &nbsp;·&nbsp; University of Toronto</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">PhD Researcher, Thirdspace Lab</h3>
-            <p>Conducting qualitative and participatory research on AI, immigrant communities, and nonprofit technology. Lead researcher and designer of AMINA.</p>
+        <div class="timeline-block fade-in">
+          <div class="timeline-item">
+            <div class="exp-card">
+              <span class="exp-meta">Volunteer & Leadership</span>
+              <div class="exp-body mini-list">
+                <p>Leader and volunteer at Bahar Charity Student Group, Toronto, Aug 2016 – present</p>
+                <p>Mental-health czar at DGP lab, University of Toronto, Sept 2019 – present</p>
+                <p>HCI meeting coordinator at DGP lab, University of Toronto, Sept 2019 – Jan 2020</p>
+                <p>Volunteer at Imam Ali Relief Society (NGO), Iran & Canada, Sept 2014 – June 2015</p>
+                <p>Innovation co-director at Engineering World Health Student Branch, University of Toronto, Jul 2016 – Aug 2017</p>
+                <p>Student representative of class of 2015, ECE department, University of Tehran, Sept 2012 – Aug 2014</p>
+                <p>Editorial board of Derang magazine (the official magazine of student union), ECE department, University of Tehran, Sept 2012 – Aug 2015</p>
+                <p>Active member of editorial board of Biotech Magazine (the official magazine of Iranian Society of Biomedical Engineering, student branch), University of Tehran, Iran, Jan 2014 – Sept 2016</p>
+              </div>
+            </div>
           </div>
-
-          <div style="margin-bottom:2rem;">
-            <div class="rs-label" style="margin-bottom:.3rem;">2019–2021 &nbsp;·&nbsp; Baycrest Health Sciences, Toronto</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">Research Engineer, Rotman Research Institute</h3>
-            <p>Developed a converter pipeline migrating the Ontario Brain Institute's MRI imaging database to the Brain Imaging Data Structure (BIDS) standard. Contributed to multivariate statistical tools for outlier detection in neuroimaging data under the supervision of Dr. Stephen Strother and Dr. Stephen Arnott.</p>
-          </div>
-
         </div>
-      </div>
 
-      <!-- TEACHING -->
-      <div class="research-section fade-in">
-        <div class="rs-meta">
-          <span class="rs-label">Teaching</span>
+        <div class="timeline-block fade-in">
+          <div class="timeline-item">
+            <div class="exp-card">
+              <span class="exp-meta">Honors & Awards</span>
+              <div class="exp-body award-list">
+                <div class="award-item">
+                  <strong>Honorable Mention Award at ACM Conference on Designing Interactive Systems 2026</strong>
+                  <span>Issued by DIS' 2016 · Jun 2026</span>
+                  <p>Awarded for research on AI risks and opportunities for the immigrant-based nonprofits in the Global North.</p>
+                </div>
+
+                <div class="award-item">
+                  <strong>Recognition of Excellence Award</strong>
+                  <span>Issued by Department of Computer Science, University of Tehran · Oct 2019</span>
+
+                  <p>Awarded to one PhD student each year in the Computer Science Department for excellent academic endeavors.</p>
+                </div>
+
+                <div class="award-item">
+                  <strong>Silver Medalist on National Astronomy Olympiad</strong>
+                  <span>Issued by Young Scholars club · Jun 2010</span>
+                  <p>National Olympiad is the most important scientific student competition in Iran that consists of a series of competitions in which final round winners are awarded.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="rs-body">
 
-          <div style="margin-bottom:2rem;">
-            <div class="rs-label" style="margin-bottom:.3rem;">2022–Present &nbsp;·&nbsp; University of Toronto</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">Teaching Assistant, UX Design</h3>
-            <p>Facilitated studio critiques, led tutorials, designed assignments, and mentored students through user research, prototyping, and usability evaluation in HCI courses.</p>
-          </div>
-
-          <div style="margin-bottom:2rem;">
-            <div class="rs-label" style="margin-bottom:.3rem;">2021–2022 &nbsp;·&nbsp; University of Toronto</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">Teaching Assistant, Programming</h3>
-            <p>Supported students in introductory and intermediate programming courses through office hours, assignment grading, and hands-on debugging sessions.</p>
-          </div>
-
-          <div>
-            <div class="rs-label" style="margin-bottom:.3rem;">Earlier &nbsp;·&nbsp; Tehran, Iran</div>
-            <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem;">Physics & Astronomy Instructor</h3>
-            <p>Taught physics and astronomy to secondary and pre-university students. Developed curriculum materials and led observation sessions.</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- LEADERSHIP -->
-      <div class="research-section fade-in">
-        <div class="rs-meta">
-          <span class="rs-label">Leadership &<br>Community</span>
-        </div>
-        <div class="rs-body">
-
-          <div style="margin-bottom:1.6rem;">
-            <div class="rs-label" style="margin-bottom:.25rem;">Bahar Charity</div>
-            <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.35rem;">Leadership Role</h3>
-            <p>Coordinated programs and helped build organizational infrastructure for sustained volunteer-led community impact.</p>
-          </div>
-
-          <div style="margin-bottom:1.6rem;">
-            <div class="rs-label" style="margin-bottom:.25rem;">Rotman Research Institute &nbsp;·&nbsp; Strother Lab</div>
-            <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.35rem;">Deep Learning Club, Founder and Organizer</h3>
-            <p>Founded and ran a deep learning reading group bridging neuroscience and engineering researchers around emerging ML methods for neuroimaging.</p>
-          </div>
-
-          <div style="margin-bottom:1.6rem;">
-            <div class="rs-label" style="margin-bottom:.25rem;">Engineers Without Borders (EWB)</div>
-            <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.35rem;">Member & Contributor</h3>
-            <p>Contributed to projects connecting engineering practice with global development and equity goals.</p>
-          </div>
-
-          <div style="margin-bottom:1.6rem;">
-            <div class="rs-label" style="margin-bottom:.25rem;">Dynamic Graphics Project Lab &nbsp;·&nbsp; University of Toronto</div>
-            <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.35rem;">CAESAR, Student Representative</h3>
-            <p>Coordinated lab events, student welfare activities, and academic community building within the graduate student organization.</p>
-          </div>
-
-          <div style="margin-bottom:1.6rem;">
-            <div class="rs-label" style="margin-bottom:.25rem;">Derang Magazine</div>
-            <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.35rem;">Editorial Contributor</h3>
-            <p>Wrote and edited content at the intersection of science, society, and culture for a Persian-language intellectual magazine.</p>
-          </div>
-
-          <div style="margin-bottom:1.6rem;">
-            <div class="rs-label" style="margin-bottom:.25rem;">University of Tehran &nbsp;·&nbsp; Biomedical Engineering</div>
-            <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.35rem;">Student Branch, Leadership</h3>
-            <p>Organized academic and professional development events for the undergraduate biomedical engineering student community.</p>
-          </div>
-
-          <div>
-            <div class="rs-label" style="margin-bottom:.25rem;">University of Tehran</div>
-            <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.35rem;">Undergraduate Student Representative</h3>
-            <p>Elected representative advocating for student interests and contributing to academic governance within the faculty.</p>
-          </div>
-
-        </div>
       </div>
 
     </div>

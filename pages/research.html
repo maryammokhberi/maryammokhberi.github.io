@@ -9,33 +9,50 @@
   <style>
     /* ── PROJECT CARD ── */
     .project-card {
-      border-bottom: 1px solid var(--rule);
-      padding: 2rem 0;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 1.4rem;
+      box-shadow: 0 10px 28px rgba(12,25,43,0.04);
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .project-card:hover {
+      border-color: rgba(14,32,64,0.24);
+      box-shadow: 0 12px 30px rgba(12,25,43,0.06);
     }
     .project-card:last-child { border-bottom: none; }
 
     /* collapsed header row */
     .project-header {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0 3rem;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 0 2rem;
       cursor: pointer;
       user-select: none;
+      align-items: start;
     }
     .project-header:hover .project-title { color: var(--navy); }
 
-    .project-meta-col { padding-top: .2rem; }
+    .project-meta-col {
+      padding-top: .3rem;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
 
     .project-title-row {
       display: flex; align-items: flex-start;
       justify-content: space-between; gap: 1rem;
     }
     .project-title {
-      font-family: var(--serif); font-size: 1.35rem; font-weight: 400;
+      font-family: var(--serif); font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+      font-weight: 400;
       color: var(--ink); transition: color .2s; margin-bottom: .5rem;
+      line-height: 1.08;
+      letter-spacing: -.01em;
     }
     .project-summary {
-      font-size: .9rem; color: var(--mid); line-height: 1.7; max-width: 580px;
+      font-size: .96rem; color: var(--mid); line-height: 1.7; max-width: 620px;
     }
 
     /* header right-side actions (PDF + toggle) */
@@ -81,36 +98,110 @@
     .project-expanded-content {
       padding-top: 1.5rem;
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0 3rem;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 0 2rem;
       align-items: start;
     }
 
     /* image slot */
     .project-img {
-      width: 160px; aspect-ratio: 4/3;
-      border-radius: 3px; overflow: hidden; position: relative; flex-shrink: 0;
+      width: 100%; max-width: 260px; aspect-ratio: 4/3;
+      border-radius: 12px; overflow: hidden; position: relative; flex-shrink: 0;
+      border: 1px solid rgba(14,32,64,0.08);
+      background: #f4f2ee;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+    }
+    .project-img a {
+      display: block; width: 100%; height: 100%; cursor: zoom-in;
+      position: relative;
     }
     .project-img img {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .25s ease, filter .25s ease, box-shadow .25s ease;
+      filter: saturate(0.96) contrast(1.02);
+    }
+    .project-img a:hover img {
+      transform: scale(1.04);
+      filter: saturate(1.05) contrast(1.04);
+    }
+    .project-img a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,16,28,0.12), rgba(8,16,28,0.02));
+      pointer-events: none;
     }
     .project-img-placeholder {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: .5rem;
+      align-items: flex-start; justify-content: flex-end;
+      gap: .45rem;
+      padding: 1rem;
+      text-align: left;
     }
-    .project-img-placeholder span {
-      font-size: .58rem; letter-spacing: .1em; text-transform: uppercase;
-      opacity: .5; font-family: var(--sans); color: white;
+    .project-img-placeholder .project-cover-tag {
+      font-size: .52rem; letter-spacing: .14em; text-transform: uppercase;
+      opacity: .8; font-family: var(--sans); color: rgba(255,255,255,.82);
+    }
+    .project-img-placeholder .project-cover-title {
+      font-size: 1rem; line-height: 1.1; font-family: var(--serif); font-weight: 400;
+      color: white; letter-spacing: .02em;
+      max-width: 8.5rem;
     }
     .project-img.color-1 { background: linear-gradient(135deg, #0e2040, #1a3a6a); }
     .project-img.color-2 { background: linear-gradient(135deg, #1a3a6a, #2a5298); }
     .project-img.color-3 { background: linear-gradient(135deg, #0e2040, #0d3b4f); }
+    .project-img.color-4 { background: linear-gradient(135deg, #17335d, #4f7db8); }
+    .project-img.color-5 { background: linear-gradient(135deg, #142f4d, #5c7ea8); }
+    .project-img.color-6 { background: linear-gradient(135deg, #102744, #4a6c8b); }
 
-    .project-detail p { font-size: .975rem; color: var(--mid); line-height: 1.8; }
+    .project-detail {
+      padding-top: .2rem;
+    }
+    .project-detail p {
+      font-size: .975rem; color: var(--mid); line-height: 1.8;
+      margin-bottom: 1rem;
+    }
     .project-detail ul { margin: .75rem 0 0 1.1rem; list-style: disc; }
     .project-detail li { font-size: .9rem; color: var(--mid); line-height: 1.9; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: rgba(7, 12, 20, 0.84);
+      z-index: 1000;
+    }
+    .lightbox.open {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: min(88vw, 980px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.38);
+      display: block;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      border: 1px solid rgba(255,255,255,.6);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
 
     @media (max-width: 640px) {
       .project-header,
@@ -126,26 +217,24 @@
     <div class="container">
 
       <div class="page-intro fade-in">
-        <h1>Projects</h1>
-        <p>I study how digital and AI systems shape the lives of immigrant communities and nonprofits, often in ways that were never intended, and rarely examined.</p>
+        <h1>Selected work</h1>
+        <p>I study how digital and AI systems shape people’s lives—especially in the contexts of care and community—often in ways that were never intended, and rarely examined.</p>
       </div>
 
-      <!-- ── AMINA ── -->
-      <div class="project-card fade-in" id="amina">
+      <div class="project-card fade-in open" id="margins">
         <div class="project-header" onclick="toggleProject(this)">
           <div class="project-meta-col">
-            <span class="rs-label">Flagship Project<br>2023–Present</span>
+            <span class="rs-label">Paper • DIS 2026</span>
           </div>
           <div>
             <div class="project-title-row">
-              <h2 class="project-title">AMINA</h2>
+              <h2 class="project-title">AI on the Margins of the Nonprofit Sector</h2>
               <div class="project-actions">
-                <!-- PDF link: update href when paper is available -->
-                <a class="pdf-link" href="#" onclick="event.stopPropagation()" target="_blank" aria-label="View paper PDF">
+                <a class="pdf-link" href="https://drive.google.com/file/d/1Ozn2S8O53-1ZbN-IhyJRiNGWtrXkTuSm/view?usp=sharing" onclick="event.stopPropagation()" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
                   <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
                     <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-                    <line x1="3" y1="7"   x2="7" y2="7"   stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
                   </svg>
@@ -158,137 +247,204 @@
                 </button>
               </div>
             </div>
-            <p class="project-summary">An AI assistant designed with, and not just for, immigrant-led nonprofit organizations, built through participatory co-design. Accountability is a feature, not an afterthought.</p>
+            <p class="project-summary">A paper about how AI reaches the people who are often left out of the usual design playbook: immigrant-led nonprofits and community organizations doing essential work with slim resources.</p>
           </div>
         </div>
         <div class="project-expanded">
           <div class="project-expanded-inner">
             <div class="project-expanded-content">
               <div class="project-img color-1">
-                <!-- To add image: replace this div content with <img src="../assets/amina.jpg" alt="AMINA"> -->
-                <div class="project-img-placeholder">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                    <path d="M3,19 C7,11 13,9 17,15 C21,21 25,9 29,13" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-                    <circle cx="25" cy="7" r="1.6" fill="white"/>
-                    <circle cx="19" cy="4" r="1" fill="white" opacity=".6"/>
-                  </svg>
-                  <span>AMINA</span>
-                </div>
+                <a href="../assets/margins-cover.jpg" class="project-image-link" aria-label="Open AI on the Margins cover image">
+                  <img src="../assets/margins-cover.jpg" alt="AI on the Margins cover" />
+                </a>
               </div>
               <div class="project-detail">
-                <p>AMINA addresses a specific problem: immigrant-led nonprofits are systematically underrepresented by the platforms meant to connect them with funders, because those platforms assume a kind of organization they aren't: formally incorporated, English-speaking, with a strong digital presence.</p>
-                <p>AMINA was built through 20+ interviews and four participatory co-design sessions. A central design principle: organizations can review and correct how the AI describes them. Accountability is built into the interaction, not added on top.</p>
-                <ul>
-                  <li>Multilingual support designed in from the start</li>
-                  <li>Uncertainty made visible: the system flags when it's guessing</li>
-                  <li>Community members as co-designers, not just testers</li>
-                </ul>
+                <p>This project looks at the quiet side of AI adoption: not glamorous start-up tools, but the systems that help nonprofits find funding, coordinate services, and support people in crisis. We explore what happens when these systems are built around the assumptions of formal, well-resourced organizations and ignore the realities of immigrant-led groups operating under time pressure, language barriers, and limited digital infrastructure.</p>
+                <p>It is a story about missed opportunities and real risks. The paper asks what it would take for AI systems to become more accountable, more humble, and more useful to the communities they are supposed to serve.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ── AI INFRASTRUCTURES ── -->
-      <div class="project-card fade-in">
+      <div class="project-card fade-in open" id="amina">
         <div class="project-header" onclick="toggleProject(this)">
           <div class="project-meta-col">
-            <span class="rs-label">PhD Research<br>2021–Present</span>
+            <span class="rs-label">Paper • GROUP 27</span>
           </div>
           <div>
             <div class="project-title-row">
-              <h2 class="project-title">AI Infrastructures & Immigrant Nonprofits</h2>
+              <h2 class="project-title">AMINA: the Agentic AI for Marginalized Immigrant Nonprofit Assistance</h2>
               <div class="project-actions">
-                <a class="pdf-link" href="#" onclick="event.stopPropagation()" target="_blank" aria-label="View paper PDF">
-                  <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none">
+                <a class="pdf-link" href="https://drive.google.com/file/d/1tFxoSqzNAz9R3-DKpx3_g5ZdQdsiEOuY/view?usp=sharing" onclick="event.stopPropagation()" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                  <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
                     <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-                    <line x1="3" y1="7"   x2="7" y2="7"   stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
                   </svg>
                   PDF
                 </a>
                 <button class="toggle-btn" aria-label="Expand project" onclick="event.stopPropagation(); toggleProject(this.closest('.project-card').querySelector('.project-header'))">
-                  <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <polyline points="2,4 6,8 10,4" stroke="#555" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </button>
               </div>
             </div>
-            <p class="project-summary">How do donor platforms, grant databases, and AI-powered intake tools shape which organizations get seen and supported, and which don't?</p>
+            <p class="project-summary">A more accountable AI system for marginalized immigrant nonprofits—built with the people it’s meant to support, not just for them.</p>
           </div>
         </div>
         <div class="project-expanded">
           <div class="project-expanded-inner">
             <div class="project-expanded-content">
               <div class="project-img color-2">
-                <!-- To add image: <img src="../assets/research.jpg" alt="Research"> -->
-                <div class="project-img-placeholder">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                    <rect x="5" y="7" width="20" height="16" rx="2" stroke="white" stroke-width="1.3" fill="none"/>
-                    <line x1="9" y1="13" x2="21" y2="13" stroke="white" stroke-width="1" stroke-linecap="round" opacity=".8"/>
-                    <line x1="9" y1="17" x2="17" y2="17" stroke="white" stroke-width="1" stroke-linecap="round" opacity=".5"/>
-                  </svg>
-                  <span>Research</span>
-                </div>
+                <a href="../assets/amina-cover.jpg" class="project-image-link" aria-label="Open AMINA cover image">
+                  <img src="../assets/amina-cover.jpg" alt="AMINA cover" />
+                </a>
               </div>
               <div class="project-detail">
-                <p>My dissertation examines how AI systems (donor platforms, grant databases, intake tools) shape the visibility and viability of immigrant-led nonprofits and informal community organizations. These tools are typically built for well-resourced, formally incorporated, English-speaking organizations. Groups that operate outside those norms are made less visible, less fundable, and less supported.</p>
-                <p>I use qualitative interviews, participatory design, and co-design methods. My fieldwork is based in Toronto, working with immigrant-led organizations across a range of communities.</p>
+                <p>AMINA is a design response to a very specific problem: many immigrant-led nonprofits are shut out of AI and funding infrastructure because those tools assume a more polished, formal, and English-dominant organization. We built a system that treats community knowledge as part of the design, not as an add-on after the fact.</p>
+                <p>Instead of pretending the system knows best, AMINA makes uncertainty visible, invites correction, and supports multilingual, messy, real-world work. The goal is not just smarter technology, but a more respectful one.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ── BCI ── -->
-      <div class="project-card fade-in">
+      <div class="project-card fade-in open" id="caring-tech">
         <div class="project-header" onclick="toggleProject(this)">
           <div class="project-meta-col">
-            <span class="rs-label">Earlier Work<br>2017–2021</span>
+            <span class="rs-label">Paper • ToCHI</span>
           </div>
           <div>
             <div class="project-title-row">
-              <h2 class="project-title">Brain-Computer Interfaces & Neural Data</h2>
+              <h2 class="project-title">Creating Caring Technologies: A Care-Ethical Framework for Nonprofit Technology Grounded in Survey of Tools, Scholarship, and Practice</h2>
               <div class="project-actions">
-                <a class="pdf-link" href="#" onclick="event.stopPropagation()" target="_blank" aria-label="View paper PDF">
-                  <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none">
+                <a class="pdf-link" href="https://drive.google.com/file/d/1yx56NFu9HVn6tATRWC5-h4zzZH6-emBA/view?usp=sharing" onclick="event.stopPropagation()" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                  <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
                     <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-                    <line x1="3" y1="7"   x2="7" y2="7"   stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
                   </svg>
                   PDF
                 </a>
                 <button class="toggle-btn" aria-label="Expand project" onclick="event.stopPropagation(); toggleProject(this.closest('.project-card').querySelector('.project-header'))">
-                  <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <polyline points="2,4 6,8 10,4" stroke="#555" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </button>
               </div>
             </div>
-            <p class="project-summary">How meditation and mental rehearsal affect EEG-based brain-computer interface classification accuracy, and what it taught me about designing for people, not averages.</p>
+            <p class="project-summary">A socio-technical look at the tools nonprofits actually use—and the care work they do that most technology still misses.</p>
           </div>
         </div>
         <div class="project-expanded">
           <div class="project-expanded-inner">
             <div class="project-expanded-content">
               <div class="project-img color-3">
-                <!-- To add image: <img src="../assets/bci.jpg" alt="BCI research"> -->
-                <div class="project-img-placeholder">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                    <path d="M3,15 C6,9 10,7 13,11 C15,14 17,9 21,10 C25,11 27,15 27,15" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-                    <path d="M3,20 C6,16 10,15 14,18 C18,21 22,17 27,18" stroke="white" stroke-width=".9" stroke-linecap="round" opacity=".5"/>
-                  </svg>
-                  <span>BCI</span>
-                </div>
+                <a href="../assets/caring-tech-cover.jpg" class="project-image-link" aria-label="Open Creating Caring Technologies cover image">
+                  <img src="../assets/caring-tech-cover.jpg" alt="Creating Caring Technologies cover" />
+                </a>
               </div>
               <div class="project-detail">
-                <p>My MSc at Holland Bloorview (supervised by Dr. Tom Chau) examined how meditation and mental rehearsal affect EEG oscillations and brain-computer interface classification accuracy, an early encounter with the gap between what a system is designed for and who can actually use it.</p>
-                <p>Before that, I built a data pipeline at the Ontario Brain Institute that migrated a large MRI imaging database to the Brain Imaging Data Structure (BIDS) standard, and contributed to multivariate statistical tools for outlier detection in complex neuroimaging data.</p>
-                <p>That technical foundation shapes how I work now: I can engage substantively with AI system design, not just critique it from the outside.</p>
+                <p>This work asks a surprisingly simple question: what kinds of digital tools do social-impact organizations actually need when they are caring for people, not just tracking metrics? We trace how nonprofits borrow, adapt, and repurpose technology in ways that are often invisible to formal design discourse.</p>
+                <p>What emerges is a richer picture of care work: not just dashboards and automation, but communication, trust-building, cultural translation, and quiet coordination across messy human systems. The project argues that technology becomes more valuable when it fits real caregiving practices rather than abstract productivity models.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-in open" id="tweet-data">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div class="project-meta-col">
+            <span class="rs-label">Paper • JMIR 2023</span>
+          </div>
+          <div>
+            <div class="project-title-row">
+              <h2 class="project-title">A Dataset Development and Classification of COVID-19–Related Anti-Asian Tweets</h2>
+              <div class="project-actions">
+                <a class="pdf-link" href="https://drive.google.com/file/d/1Mo9-PKOxqd932nYSlqFCl7NH6FmljNGM/view?usp=sharing" onclick="event.stopPropagation()" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                  <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                    <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                  </svg>
+                  PDF
+                </a>
+                <button class="toggle-btn" aria-label="Expand project" onclick="event.stopPropagation(); toggleProject(this.closest('.project-card').querySelector('.project-header'))">
+                  <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="2,4 6,8 10,4" stroke="#555" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="project-summary">A dataset built to trace COVID-19 anti-Asian online hostility—so the patterns behind the harm are visible and measurable.</p>
+          </div>
+        </div>
+        <div class="project-expanded">
+          <div class="project-expanded-inner">
+            <div class="project-expanded-content">
+              <div class="project-img color-4">
+                <a href="../assets/tweet-data-cover.jpg" class="project-image-link" aria-label="Open tweet dataset cover image">
+                  <img src="../assets/tweet-data-cover.jpg" alt="A Dataset Development and Classification of COVID-19–Related Anti-Asian Tweets cover" />
+                </a>
+              </div>
+              <div class="project-detail">
+                <p>This project creates a structured dataset of COVID-19-related anti-Asian tweets to make online hate more legible and easier to study across time, topic, and sentiment. It is about surfacing patterns of hostility in a way that can support research, intervention, and public understanding.</p>
+                <p>The work sits at the intersection of social media analysis and public health communication: online abuse does not appear in a vacuum, and the data helps researchers see how racist narratives circulated during a global crisis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-in open" id="meditation-bci">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div class="project-meta-col">
+            <span class="rs-label">Thesis • 2018</span>
+          </div>
+          <div>
+            <div class="project-title-row">
+              <h2 class="project-title">How Meditation Helps Children with Disability to Use Brain-Computer Interfaces Better</h2>
+              <div class="project-actions">
+                <a class="pdf-link" href="https://drive.google.com/file/d/1c1zZkNh5ugn8vj3-cVvDyA9Z5T1sJbSW/view?usp=sharing" onclick="event.stopPropagation()" target="_blank" rel="noopener noreferrer" aria-label="View paper PDF">
+                  <svg class="pdf-icon" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                    <line x1="3" y1="4.5" x2="7" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <line x1="3" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <line x1="3" y1="9.5" x2="5.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <path d="M8,9 L12,9 M10,7 L10,11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                  </svg>
+                  PDF
+                </a>
+                <button class="toggle-btn" aria-label="Expand project" onclick="event.stopPropagation(); toggleProject(this.closest('.project-card').querySelector('.project-header'))">
+                  <svg class="toggle-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="2,4 6,8 10,4" stroke="#555" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="project-summary">A thesis on how meditation and mental rehearsal change brain signals—and why attention matters in the design of assistive systems.</p>
+          </div>
+        </div>
+        <div class="project-expanded">
+          <div class="project-expanded-inner">
+            <div class="project-expanded-content">
+              <div class="project-img color-5">
+                <a href="../assets/meditation-cover.jpg" class="project-image-link" aria-label="Open meditation cover image">
+                  <img src="../assets/meditation-cover.jpg" alt="How Meditation Helps Children with Disability to Use Brain-Computer Interfaces Better cover" />
+                </a>
+              </div>
+              <div class="project-detail">
+                <p>This thesis explores whether meditation and mental rehearsal can improve brain-computer interface performance in a pediatric setting. It begins with a deceptively simple question: if people can learn to regulate their attention, can that make a neurotechnology easier to control?</p>
+                <p>What follows is a blend of human signals, neurological measurement, and practical design insight. The project taught me that a system is never just about data—it is also about who can focus, adapt, and feel comfortable using it.</p>
               </div>
             </div>
           </div>
@@ -299,13 +455,51 @@
   </div>
 
   <div id="footer-placeholder"></div>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+    <img id="lightbox-image" src="" alt="" />
+  </div>
   <script src="../js/blog-posts.js"></script>
   <script src="../js/main.js"></script>
   <script>
     function toggleProject(header) {
       const card = header.closest('.project-card');
+      if (!card) return;
       card.classList.toggle('open');
     }
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.project-image-link').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const img = link.querySelector('img');
+        if (!img) return;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
   </script>
 </body>
 </html>

@@ -44,7 +44,7 @@ const NAV_HTML = `
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="${ROOT}home.html" data-page="home">Home</a></li>
+      <li><a href="${ROOT}introduction.html" data-page="introduction">Introduction</a></li>
       <li><a href="${ROOT}pages/research.html" data-page="research">Projects</a></li>
       <li><a href="${ROOT}pages/publications.html" data-page="publications">Publications</a></li>
       <li><a href="${ROOT}pages/teaching.html" data-page="teaching">Experience</a></li>
@@ -62,7 +62,7 @@ ${WAVE_SVG}
     <span class="footer-copy">© 2026 Maryam Mokhberi &nbsp;·&nbsp; University of Toronto</span>
     <div class="footer-links">
       <a href="mailto:maryam@cs.toronto.edu">Email</a>
-      <a href="https://www.linkedin.com/in/maryam-mokhberi-374abb60/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/maryammokhberi/" target="_blank">LinkedIn</a>
       <a href="https://twitter.com/MaryamMokhberi_" target="_blank">X</a>
       <a href="https://github.com/maryammokhberi" target="_blank">GitHub</a>
     </div>
